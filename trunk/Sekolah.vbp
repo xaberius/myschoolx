@@ -20,6 +20,7 @@ Object={DEF7CADD-83C0-11D0-A0F1-00A024703500}#7.0#0; todg7.ocx
 Class=ClassForm; Class\ClassForm.cls
 Module=ModuleFade; Modul\ModuleFade.bas
 Form=Form\FrmUser.frm
+Object={4A4AA691-3E6F-11D2-822F-00104B9E07A1}#3.0#0; ssdw3bo.ocx
 IconForm="FrmMain"
 Startup="Sub Main"
 HelpFile=""
