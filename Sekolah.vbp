@@ -25,6 +25,7 @@ Form=Form\FrmUserType.frm
 IconForm="FrmMainAdmin"
 Startup="Sub Main"
 HelpFile=""
+ExeName32="Sekolah.exe"
 Command32=""
 Name="School"
 HelpContextID="0"
