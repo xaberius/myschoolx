@@ -2,6 +2,7 @@ VERSION 5.00
 Object = "{9CAA1C67-43C4-4FFF-A005-20037C74BF32}#1.0#0"; "AlphaImageControl.ocx"
 Object = "{A7960112-5DC4-4575-BFA3-DAD80FEE0438}#33.0#0"; "BasKomponen.ocx"
 Object = "{8B946F6F-F1C6-4F89-A615-115403ACC638}#1.0#0"; "BasTombol.ocx"
+Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "msadodc.ocx"
 Object = "{DEF7CADD-83C0-11D0-A0F1-00A024703500}#7.0#0"; "todg7.ocx"
 Object = "{4A4AA691-3E6F-11D2-822F-00104B9E07A1}#3.0#0"; "ssdw3bo.ocx"
 Begin VB.Form FrmUser 
@@ -16,7 +17,7 @@ Begin VB.Form FrmUser
    ScaleWidth      =   10065
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
-   Begin VB.TextBox Text1 
+   Begin VB.TextBox TxtUserPassword 
       Appearance      =   0  'Flat
       Height          =   330
       Left            =   2880
@@ -36,6 +37,53 @@ Begin VB.Form FrmUser
       ButtonMin       =   0   'False
       Caption         =   ""
       Object.ToolTipText     =   ""
+      Begin MSAdodcLib.Adodc AdoType 
+         Height          =   330
+         Left            =   6840
+         Top             =   1680
+         Visible         =   0   'False
+         Width           =   1200
+         _ExtentX        =   2117
+         _ExtentY        =   582
+         ConnectMode     =   0
+         CursorLocation  =   3
+         IsolationLevel  =   -1
+         ConnectionTimeout=   15
+         CommandTimeout  =   30
+         CursorType      =   3
+         LockType        =   3
+         CommandType     =   8
+         CursorOptions   =   0
+         CacheSize       =   50
+         MaxRecords      =   0
+         BOFAction       =   0
+         EOFAction       =   0
+         ConnectStringType=   1
+         Appearance      =   1
+         BackColor       =   -2147483643
+         ForeColor       =   -2147483640
+         Orientation     =   0
+         Enabled         =   -1
+         Connect         =   ""
+         OLEDBString     =   ""
+         OLEDBFile       =   ""
+         DataSourceName  =   ""
+         OtherAttributes =   ""
+         UserName        =   ""
+         Password        =   ""
+         RecordSource    =   ""
+         Caption         =   "Adodc1"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         _Version        =   393216
+      End
       Begin SSDataWidgets_B_OLEDB.SSOleDBCombo CmbPosition 
          Height          =   345
          Left            =   2880
@@ -46,7 +94,6 @@ Begin VB.Form FrmUser
          DataFieldList   =   "Column 0"
          BevelType       =   0
          _Version        =   196616
-         DataMode        =   2
          BeginProperty HeadFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -56,11 +103,6 @@ Begin VB.Form FrmUser
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Row.Count       =   4
-         Row(0)          =   "Adminstrator"
-         Row(1)          =   "School Administration"
-         Row(2)          =   "Teacher"
-         Row(3)          =   "Head Master"
          BevelColorHighlight=   -2147483634
          BevelColorFace  =   -2147483627
          CheckBox3D      =   0   'False
@@ -88,7 +130,7 @@ Begin VB.Form FrmUser
             Strikethrough   =   0   'False
          EndProperty
       End
-      Begin VB.TextBox TxtFormID 
+      Begin VB.TextBox TxtUserID 
          Appearance      =   0  'Flat
          Height          =   330
          Left            =   2880
@@ -96,7 +138,7 @@ Begin VB.Form FrmUser
          Top             =   720
          Width           =   3255
       End
-      Begin VB.TextBox TxtFormName 
+      Begin VB.TextBox TxtUserName 
          Appearance      =   0  'Flat
          Height          =   330
          Left            =   2880
@@ -340,18 +382,16 @@ Begin VB.Form FrmUser
          Width           =   9450
          _ExtentX        =   16669
          _ExtentY        =   6535
-         _LayoutType     =   4
+         _LayoutType     =   0
          _RowHeight      =   -2147483647
          _WasPersistedAsPixels=   0
          Columns(0)._VlistStyle=   0
          Columns(0)._MaxComboItems=   5
-         Columns(0).Caption=   "Form ID"
-         Columns(0).DataField=   "FormID"
+         Columns(0).DataField=   ""
          Columns(0)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
          Columns(1)._VlistStyle=   0
          Columns(1)._MaxComboItems=   5
-         Columns(1).Caption=   "Form Name"
-         Columns(1).DataField=   "FormName"
+         Columns(1).DataField=   ""
          Columns(1)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
          Columns.Count   =   2
          Splits(0)._UserFlags=   0
@@ -367,17 +407,17 @@ Begin VB.Form FrmUser
          Splits(0).SpringMode=   0   'False
          Splits(0)._PropDict=   "_ColumnProps,515,0;_UserFlags,518,3"
          Splits(0)._ColumnProps(0)=   "Columns.Count=2"
-         Splits(0)._ColumnProps(1)=   "Column(0).Width=5689"
+         Splits(0)._ColumnProps(1)=   "Column(0).Width=3281"
          Splits(0)._ColumnProps(2)=   "Column(0).DividerColor=0"
-         Splits(0)._ColumnProps(3)=   "Column(0)._WidthInPix=5583"
+         Splits(0)._ColumnProps(3)=   "Column(0)._WidthInPix=3175"
          Splits(0)._ColumnProps(4)=   "Column(0)._EditAlways=0"
-         Splits(0)._ColumnProps(5)=   "Column(0)._ColStyle=512"
+         Splits(0)._ColumnProps(5)=   "Column(0)._ColStyle=516"
          Splits(0)._ColumnProps(6)=   "Column(0).Order=1"
          Splits(0)._ColumnProps(7)=   "Column(1).Width=3281"
          Splits(0)._ColumnProps(8)=   "Column(1).DividerColor=0"
          Splits(0)._ColumnProps(9)=   "Column(1)._WidthInPix=3175"
          Splits(0)._ColumnProps(10)=   "Column(1)._EditAlways=0"
-         Splits(0)._ColumnProps(11)=   "Column(1)._ColStyle=512"
+         Splits(0)._ColumnProps(11)=   "Column(1)._ColStyle=516"
          Splits(0)._ColumnProps(12)=   "Column(1).Order=2"
          Splits.Count    =   1
          PrintInfos(0)._StateFlags=   3
@@ -452,14 +492,14 @@ Begin VB.Form FrmUser
          _StyleDefs(41)  =   "Splits(0).OddRowStyle:id=21,.parent=10,.namedParent=37,.bgcolor=&H80FFFF&"
          _StyleDefs(42)  =   "Splits(0).RecordSelectorStyle:id=23,.parent=11"
          _StyleDefs(43)  =   "Splits(0).FilterBarStyle:id=24,.parent=12"
-         _StyleDefs(44)  =   "Splits(0).Columns(0).Style:id=46,.parent=13,.alignment=0"
-         _StyleDefs(45)  =   "Splits(0).Columns(0).HeadingStyle:id=43,.parent=14"
-         _StyleDefs(46)  =   "Splits(0).Columns(0).FooterStyle:id=44,.parent=15"
-         _StyleDefs(47)  =   "Splits(0).Columns(0).EditorStyle:id=45,.parent=17"
-         _StyleDefs(48)  =   "Splits(0).Columns(1).Style:id=28,.parent=13,.alignment=0"
-         _StyleDefs(49)  =   "Splits(0).Columns(1).HeadingStyle:id=25,.parent=14"
-         _StyleDefs(50)  =   "Splits(0).Columns(1).FooterStyle:id=26,.parent=15"
-         _StyleDefs(51)  =   "Splits(0).Columns(1).EditorStyle:id=27,.parent=17"
+         _StyleDefs(44)  =   "Splits(0).Columns(0).Style:id=28,.parent=13"
+         _StyleDefs(45)  =   "Splits(0).Columns(0).HeadingStyle:id=25,.parent=14"
+         _StyleDefs(46)  =   "Splits(0).Columns(0).FooterStyle:id=26,.parent=15"
+         _StyleDefs(47)  =   "Splits(0).Columns(0).EditorStyle:id=27,.parent=17"
+         _StyleDefs(48)  =   "Splits(0).Columns(1).Style:id=32,.parent=13"
+         _StyleDefs(49)  =   "Splits(0).Columns(1).HeadingStyle:id=29,.parent=14"
+         _StyleDefs(50)  =   "Splits(0).Columns(1).FooterStyle:id=30,.parent=15"
+         _StyleDefs(51)  =   "Splits(0).Columns(1).EditorStyle:id=31,.parent=17"
          _StyleDefs(52)  =   "Named:id=33:Normal"
          _StyleDefs(53)  =   ":id=33,.parent=0,.bgcolor=&HFF80&,.fgcolor=&HFFFFFF&,.borderColor=&H800040&"
          _StyleDefs(54)  =   "Named:id=34:Heading"

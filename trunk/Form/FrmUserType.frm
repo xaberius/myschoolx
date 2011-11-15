@@ -35,16 +35,18 @@ Begin VB.Form FrmUserType
          Width           =   9450
          _ExtentX        =   16669
          _ExtentY        =   6535
-         _LayoutType     =   0
+         _LayoutType     =   4
          _RowHeight      =   -2147483647
          _WasPersistedAsPixels=   0
          Columns(0)._VlistStyle=   0
          Columns(0)._MaxComboItems=   5
-         Columns(0).DataField=   ""
+         Columns(0).Caption=   "Type ID"
+         Columns(0).DataField=   "TypeID"
          Columns(0)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
          Columns(1)._VlistStyle=   0
          Columns(1)._MaxComboItems=   5
-         Columns(1).DataField=   ""
+         Columns(1).Caption=   "Type Name"
+         Columns(1).DataField=   "TypeName"
          Columns(1)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
          Columns.Count   =   2
          Splits(0)._UserFlags=   0
@@ -64,13 +66,13 @@ Begin VB.Form FrmUserType
          Splits(0)._ColumnProps(2)=   "Column(0).DividerColor=0"
          Splits(0)._ColumnProps(3)=   "Column(0)._WidthInPix=3175"
          Splits(0)._ColumnProps(4)=   "Column(0)._EditAlways=0"
-         Splits(0)._ColumnProps(5)=   "Column(0)._ColStyle=516"
+         Splits(0)._ColumnProps(5)=   "Column(0)._ColStyle=512"
          Splits(0)._ColumnProps(6)=   "Column(0).Order=1"
          Splits(0)._ColumnProps(7)=   "Column(1).Width=3281"
          Splits(0)._ColumnProps(8)=   "Column(1).DividerColor=0"
          Splits(0)._ColumnProps(9)=   "Column(1)._WidthInPix=3175"
          Splits(0)._ColumnProps(10)=   "Column(1)._EditAlways=0"
-         Splits(0)._ColumnProps(11)=   "Column(1)._ColStyle=516"
+         Splits(0)._ColumnProps(11)=   "Column(1)._ColStyle=512"
          Splits(0)._ColumnProps(12)=   "Column(1).Order=2"
          Splits.Count    =   1
          PrintInfos(0)._StateFlags=   3
@@ -145,11 +147,11 @@ Begin VB.Form FrmUserType
          _StyleDefs(41)  =   "Splits(0).OddRowStyle:id=21,.parent=10,.namedParent=37,.bgcolor=&H80FFFF&"
          _StyleDefs(42)  =   "Splits(0).RecordSelectorStyle:id=23,.parent=11"
          _StyleDefs(43)  =   "Splits(0).FilterBarStyle:id=24,.parent=12"
-         _StyleDefs(44)  =   "Splits(0).Columns(0).Style:id=28,.parent=13"
+         _StyleDefs(44)  =   "Splits(0).Columns(0).Style:id=28,.parent=13,.alignment=0"
          _StyleDefs(45)  =   "Splits(0).Columns(0).HeadingStyle:id=25,.parent=14"
          _StyleDefs(46)  =   "Splits(0).Columns(0).FooterStyle:id=26,.parent=15"
          _StyleDefs(47)  =   "Splits(0).Columns(0).EditorStyle:id=27,.parent=17"
-         _StyleDefs(48)  =   "Splits(0).Columns(1).Style:id=32,.parent=13"
+         _StyleDefs(48)  =   "Splits(0).Columns(1).Style:id=32,.parent=13,.alignment=0"
          _StyleDefs(49)  =   "Splits(0).Columns(1).HeadingStyle:id=29,.parent=14"
          _StyleDefs(50)  =   "Splits(0).Columns(1).FooterStyle:id=30,.parent=15"
          _StyleDefs(51)  =   "Splits(0).Columns(1).EditorStyle:id=31,.parent=17"
@@ -405,7 +407,7 @@ Begin VB.Form FrmUserType
          CHECK           =   0   'False
          VALUE           =   0   'False
       End
-      Begin VB.TextBox TxtFormName 
+      Begin VB.TextBox TxtTypeName 
          Appearance      =   0  'Flat
          Height          =   330
          Left            =   3240
@@ -413,7 +415,7 @@ Begin VB.Form FrmUserType
          Top             =   1080
          Width           =   3255
       End
-      Begin VB.TextBox TxtFormID 
+      Begin VB.TextBox TxtTypeID 
          Appearance      =   0  'Flat
          Height          =   330
          Left            =   3240
@@ -514,7 +516,80 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Option Explicit
+Dim Edit As Boolean
+Sub RefreshData()
+Set Grid.DataSource = Nothing
+SQL = "select TypeID,Typename from UserType"
+Set Grid.DataSource = DbCon.Execute(SQL)
+Grid.Refresh
+End Sub
+Function KodeAuto()
+'SQL = "Select No_Urut from ServiceMobil order by No_Urut"
+'Set RSFind = DbCon.Execute(SQL)
+'If Not RSFind.BOF Then
+'   KodeAuto = RSFind!no_urut
+'   Exit Function
+'End If
+SQL = "Select TypeID from UserType order by TypeID Desc"
+Set RSFind = DbCon.Execute(SQL)
+If RSFind.BOF Then
+    KodeAuto = "0001"
+Else
+    KodeAuto = Format(CInt(Left(RSFind!TypeID, 4)) + 1, "0000")
+End If
+End Function
+
+Private Sub CmdAdd_Click()
+Tombol Me, False
+TxtTypeID = KodeAuto
+Edit = False
+TxtTypeID.Locked = False
+TxtTypeName.Locked = False
+End Sub
+
+Private Sub CmdCancel_Click()
+Form_Load
+End Sub
+
+Private Sub CmdDelete_Click()
+If MsgBox("Are You Sure Delete This??", vbCritical + vbYesNo) = vbYes Then
+    SQL = "delete from UserType where typeID='" & Trim(TxtTypeID.Text) & "'"
+    DbCon.Execute SQL
+    MsgBox "Data Deleted!!!"
+    RefreshData
+    Form_Load
+End If
+End Sub
+
+Private Sub CmdEdit_Click()
+Grid_Click
+End Sub
+
+Private Sub CmdQuit_Click()
+Unload Me
+End Sub
+
+Private Sub CmdSave_Click()
+If TxtTypeName = "" Then
+    MsgBox "Type Name Still Blank"
+    Exit Sub
+End If
+    
+If Not Edit Then
+    SQL = "Insert into UserType values('" & Trim(TxtTypeID.Text) & "','" & Trim(TxtTypeName.Text) & "')"
+    DbCon.Execute SQL
+    MsgBox "Data Saved..."
+    RefreshData
+    Form_Load
+Else
+    SQL = "update UserType set TypeName='" & Trim(TxtTypeName.Text) & _
+    "' where TypeID='" & Trim(TxtTypeID.Text) & "'"
+    DbCon.Execute SQL
+    MsgBox "Data Updated..."
+    RefreshData
+    Form_Load
+End If
+End Sub
 
 Private Sub Form_Activate()
 CekForm Me, TxtID
@@ -524,12 +599,20 @@ Private Sub Form_Load()
 TxtID = "A01-03-02"
 Me.Height = Me.BasForm1.Height
 Me.Width = Me.BasForm1.Width
+TxtTypeID = ""
+TxtTypeName = ""
+TxtTypeID.Locked = True
+TxtTypeName.Locked = True
+Tombol Me, True
+RefreshData
 End Sub
 
-Private Sub Label4_Click()
 
-End Sub
-
-Private Sub TxtFormID_Change()
-
+Private Sub Grid_Click()
+Edit = True
+Tombol Me, False
+TxtTypeID = Trim(Grid.Columns(0).Text)
+TxtTypeName = Trim(Grid.Columns(1).Text)
+TxtTypeID.Locked = True
+TxtTypeName.Locked = False
 End Sub

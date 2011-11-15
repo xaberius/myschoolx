@@ -624,16 +624,21 @@ TxtFormID.BackColor = vbRed
 TxtFormID.ForeColor = vbWhite
 End Sub
 
+Private Sub TxtFormID_Change()
+SQL = "select * from FormX where FormID='" & Trim(TxtFormID) & "'"
+Set RSFind = DbCon.Execute(SQL)
+If RSFind.RecordCount > 0 Then
+    MsgBox "Menu Already Exist!!", vbCritical
+    Exit Sub
+End If
+End Sub
+
 Private Sub TxtFormID_KeyDown(KeyCode As Integer, Shift As Integer)
 Enter KeyCode
 End Sub
 
 Private Sub TxtFormID_KeyPress(KeyAscii As Integer)
 KeyAscii = UpCase(KeyAscii)
-End Sub
-
-Private Sub TxtFormName_Change()
-
 End Sub
 
 Private Sub TxtFormName_KeyDown(KeyCode As Integer, Shift As Integer)
