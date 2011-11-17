@@ -82,7 +82,7 @@ Private Sub Timer1_Timer()
 If Bar.Value = 100 Then
     Timer1.Enabled = False
     Unload Me
-    FrmMainAdmin.Show
+    FrmLogin.Show
 ElseIf Bar.Value = 50 Then
     Bar.CaptionForeColor = vbWhite
     Bar.Value = Val(Bar.Value) + 1

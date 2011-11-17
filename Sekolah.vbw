@@ -1,8 +1,8 @@
 FrmMainAdmin = 29, 190, 832, 652, C, 22, 29, 825, 491, C
-FrmLoading = -149, 237, 654, 699, C, 44, 58, 847, 520, C
+FrmLoading = 73, 95, 876, 557, C, 44, 58, 847, 520, C
 ModulUtama = 132, 174, 935, 636, C
 ModulTransparant = 110, 145, 905, 599, C
-FrmLogin = 110, 145, 924, 633, C, 44, 58, 847, 520, C
+FrmLogin = 110, 145, 924, 633, Z, 44, 58, 847, 520, C
 FrmDataForm = 0, 0, 814, 462, C, 154, 203, 968, 665, C
 ClassForm = 154, 203, 968, 691, C
 ModuleFade = 0, 0, 814, 488, C

@@ -22,6 +22,7 @@ Module=ModuleFade; Modul\ModuleFade.bas
 Form=Form\FrmUser.frm
 Object={4A4AA691-3E6F-11D2-822F-00104B9E07A1}#3.0#0; ssdw3bo.ocx
 Form=Form\FrmUserType.frm
+Object={65E121D4-0C60-11D2-A9FC-0000F8754DA1}#2.0#0; MSCHRT20.OCX
 IconForm="FrmMainAdmin"
 Startup="Sub Main"
 HelpFile=""
