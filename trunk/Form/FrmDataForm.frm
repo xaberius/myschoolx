@@ -565,11 +565,19 @@ End Sub
 
 Private Sub CmdSave_Click()
 Dim Code As String
+
 If Trim(TxtFormID.Text) = "" Then
     MsgBox "Form ID Still Blank"
     Exit Sub
 ElseIf Trim(TxtFormName.Text) = "" Then
     MsgBox "Form Name Still Blank"
+    Exit Sub
+End If
+    
+SQL = "select * from FormX where FormID='" & Trim(TxtFormID) & "'"
+Set RSFind = DbCon.Execute(SQL)
+If RSFind.RecordCount > 0 Then
+    MsgBox "Menu Already Exist!!", vbCritical
     Exit Sub
 End If
     
@@ -622,15 +630,6 @@ TxtFormID.Locked = True
 TxtFormName.Locked = False
 TxtFormID.BackColor = vbRed
 TxtFormID.ForeColor = vbWhite
-End Sub
-
-Private Sub TxtFormID_Change()
-SQL = "select * from FormX where FormID='" & Trim(TxtFormID) & "'"
-Set RSFind = DbCon.Execute(SQL)
-If RSFind.RecordCount > 0 Then
-    MsgBox "Menu Already Exist!!", vbCritical
-    Exit Sub
-End If
 End Sub
 
 Private Sub TxtFormID_KeyDown(KeyCode As Integer, Shift As Integer)

@@ -17,6 +17,7 @@ Dim strWindowsSystemDirectory           As String
 
 Type usr
    UserId            As String
+   UserType          As String
 End Type
 
 Type Login
