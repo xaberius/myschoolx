@@ -14,7 +14,7 @@ Begin VB.Form FrmLogin
    ScaleHeight     =   3120
    ScaleWidth      =   7125
    ShowInTaskbar   =   0   'False
-   StartUpPosition =   3  'Windows Default
+   StartUpPosition =   2  'CenterScreen
    Begin BasKomponen.BasForm BasForm1 
       Height          =   3000
       Left            =   0
@@ -144,7 +144,9 @@ Begin VB.Form FrmLogin
             Strikethrough   =   0   'False
          EndProperty
          Height          =   475
+         IMEMode         =   3  'DISABLE
          Left            =   3480
+         PasswordChar    =   "X"
          TabIndex        =   1
          Top             =   1440
          Width           =   3135
@@ -260,7 +262,10 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Dim Try As Integer
+
 Private Sub Form_Activate()
+TxtPassword.SetFocus
 TxtID = "Login"
 CekForm Me, TxtID
 End Sub
@@ -270,12 +275,21 @@ Enter KeyCode
 End Sub
 
 Private Sub Form_Load()
+Try = 0
 Me.Height = Me.BasForm1.Height
 Me.Width = Me.BasForm1.Width
+TxtUserID = GetSetting(App.Title, "startup", "login")
+TxtUserID.SelLength = Len(TxtUser)
 End Sub
 
 Private Sub Timer1_Timer()
 Dim A As Boolean
+
+If Try = 3 Then
+    MsgBox "You Are Not Authorized!!!", vbCritical
+    Unload Me
+    End
+End If
 
 Bar.Value = 0
 While Bar.Value < 100
@@ -290,6 +304,7 @@ While Bar.Value < 100
             TxtUserID.SetFocus
             Timer1.Enabled = False
             Bar.Value = 0
+            Try = Try + 1
             Exit Sub
         ElseIf Trim(Trans.decryp_pass(25, RSFind!Password)) <> Trim(TxtPassword) Then
             MsgBox "Password Is Not Registed!", vbCritical
@@ -297,6 +312,7 @@ While Bar.Value < 100
             TxtPassword.SetFocus
             Timer1.Enabled = False
             Bar.Value = 0
+            Try = Try + 1
             Exit Sub
         Else
             A = True
@@ -309,8 +325,21 @@ Wend
 If Bar.Value = 100 Then
         Timer1.Enabled = False
         If A Then
-            FrmMainAdmin.Show
-            Unload Me
+            SaveSetting App.Title, "startup", "login", Trim(TxtUserID)
+            User.UserId = Trim(TxtUserID)
+            User.UserType = Trim(RSFind!UserType)
+            If Trim(RSFind!UserType) = "0001" Then
+                SystemLog Me.Name, "Login", Trim(User.UserId) & " Enter System."
+                FrmChoise.Show
+                Unload Me
+            ElseIf Trim(RSFind!UserType) = "0002" Then
+                SystemLog Me.Name, "Login", Trim(User.UserId) & " Enter System."
+                FrmMainAdministration.Show
+                Unload Me
+            Else
+                MsgBox "User Type Is Not Valid"
+                Exit Sub
+            End If
         End If
     End If
 End Sub
@@ -341,9 +370,9 @@ ElseIf Trim(TxtPassword) = "" Then
     TxtPassword.SetFocus
     Exit Sub
 End If
-Bar.Visible = True
-Timer1.Enabled = True
 
+    Bar.Visible = True
+    Timer1.Enabled = True
 End Sub
 
 Private Sub vbButton2_KeyDown(KeyCode As Integer, Shift As Integer)

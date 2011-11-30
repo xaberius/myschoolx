@@ -43,6 +43,25 @@ Begin VB.Form FrmMainAdmin
       Visible         =   0   'False
       Width           =   3255
    End
+   Begin VB.Label Label1 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Admin's Menu"
+      BeginProperty Font 
+         Name            =   "Minion Pro SmBd"
+         Size            =   15.75
+         Charset         =   0
+         Weight          =   600
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   375
+      Left            =   12120
+      TabIndex        =   1
+      Top             =   720
+      Width           =   2055
+   End
    Begin AlphaImageControl.aicAlphaImage BannerUtama 
       Height          =   690
       Left            =   -240
@@ -97,14 +116,20 @@ Me.BannerUtama.Width = Me.Width + 1000
 Me.LogoUtama.Left = Me.LogoUtama.Left + 100
 
 With SmartMenuXP1.MenuItems
-        .Add 0, "mnuServer", , "&Login   "
-        .Add "mnuServer", "mnuLogin", , "&Login"
+        .Add 0, "mnuServer", , "&Logout   "
+        .Add "mnuServer", "mnuLogin", , "&Logout"
+        .Add "mnuServer", "mnuChoise", , "&Choise"
         .Add "mnuServer", "mnuExit", , "&Exit"
+        
         .Add 0, "mnuForm", , "&Form   "
         .Add "mnuForm", "mnuDataForm", , "&Data Form"
+        
         .Add 0, "mnuUser", , "&User  "
         .Add "mnuUser", "mnuDataUser", , "&User Form"
         .Add "mnuUser", "mnuUserType", , "&User Type"
+        
+        .Add 0, "mnuLog", , "&System Log  "
+        .Add "mnuLog", "mnuSysLog", , "&System Log Form"
 End With
 End Sub
 
@@ -116,14 +141,16 @@ End Sub
 Private Sub SmartMenuXP1_Click(ByVal ID As Long)
 With SmartMenuXP1.MenuItems
         Select Case .Key(ID)
-            Case "mnuLogin": FrmLogin.Show , FrmMainAdmin
+            Case "mnuLogin": Unload Me: FrmLogin.Show
+            Case "mnuChoise": Unload Me: FrmChoise.Show
             Case "mnuExit": Unload Me
             Case "mnuDataForm": FrmDataForm.Show , FrmMainAdmin
             Case "mnuDataUser": FrmUser.Show , FrmMainAdmin
             Case "mnuUserType": FrmUserType.Show , FrmMainAdmin
             Case "mnuDataUser": FrmUser.Show , FrmMainAdmin
+            Case "mnuSysLog": FrmLogSystem.Show , FrmMainAdmin
             Case "mnuDataUser": FrmUser.Show , FrmMainAdmin
-            Case "mnuDataUser": FrmUser.Show , FrmMainAdmin
+            
             
         End Select
 End With
