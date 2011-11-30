@@ -9,10 +9,10 @@ Begin VB.Form FrmDataForm
    ClientHeight    =   6315
    ClientLeft      =   0
    ClientTop       =   0
-   ClientWidth     =   10065
+   ClientWidth     =   10980
    LinkTopic       =   "Form1"
    ScaleHeight     =   6315
-   ScaleWidth      =   10065
+   ScaleWidth      =   10980
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
    Begin BasKomponen.BasForm BasForm1 
@@ -433,6 +433,14 @@ Begin VB.Form FrmDataForm
          Visible         =   0   'False
          Width           =   3255
       End
+      Begin VB.Shape Shape1 
+         BorderColor     =   &H0000DDFF&
+         BorderWidth     =   2
+         Height          =   5295
+         Left            =   120
+         Top             =   600
+         Width           =   9735
+      End
       Begin VB.Label Label3 
          BackStyle       =   0  'Transparent
          Caption         =   "Form Name"
@@ -471,14 +479,6 @@ Begin VB.Form FrmDataForm
          Top             =   720
          Width           =   1815
       End
-      Begin VB.Shape Shape1 
-         BorderColor     =   &H0000DDFF&
-         BorderWidth     =   2
-         Height          =   5295
-         Left            =   120
-         Top             =   600
-         Width           =   9735
-      End
       Begin VB.Label Label1 
          BackStyle       =   0  'Transparent
          Caption         =   "Data Form Of Forms"
@@ -499,14 +499,15 @@ Begin VB.Form FrmDataForm
          Width           =   5655
       End
       Begin AlphaImageControl.aicAlphaImage aicAlphaImage1 
-         Height          =   5970
+         Height          =   7170
          Left            =   0
          Top             =   0
-         Width           =   10005
-         _ExtentX        =   17648
-         _ExtentY        =   10530
+         Width           =   10035
+         _ExtentX        =   17701
+         _ExtentY        =   12647
          Image           =   "FrmDataForm.frx":00A8
          Scaler          =   1
+         Opacity         =   90
          Props           =   5
       End
    End
@@ -630,6 +631,10 @@ TxtFormID.Locked = True
 TxtFormName.Locked = False
 TxtFormID.BackColor = vbRed
 TxtFormID.ForeColor = vbWhite
+End Sub
+
+Private Sub Label2_Click()
+
 End Sub
 
 Private Sub TxtFormID_KeyDown(KeyCode As Integer, Shift As Integer)

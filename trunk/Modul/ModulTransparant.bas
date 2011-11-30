@@ -55,12 +55,17 @@ Set RSFind = DbCon.Execute(SQL)
 If RSFind.RecordCount = 0 Then
     Form.Hide
     MsgBox "Form Is Not Valid!!!", vbCritical
-    FrmDataForm.Show
-    FrmDataForm.CmdAdd_Click
-    FrmDataForm.TxtFormID = TxtID
-    FrmDataForm.TxtFormID.Locked = True
-    FrmDataForm.TxtFormName = Form.Name
-    Unload Form
+    If User.UserType = "0001" Then
+        FrmDataForm.Show
+        FrmDataForm.CmdAdd_Click
+        FrmDataForm.TxtFormID = TxtID
+        FrmDataForm.TxtFormID.Locked = True
+        FrmDataForm.TxtFormName = Form.Name
+        Unload Form
+    Else
+        MsgBox "This User Not Allowed To Open Data Form. " & vbCrLf & "Please Contact Your System Administrator."
+        Unload Form
+    End If
 End If
 End Sub
 
@@ -74,3 +79,23 @@ With Form
     .CmdCancel.Enabled = Not Stat
 End With
 End Sub
+Function CekKonek(Form As Form)
+If Not Connect1 Then
+    MsgBox "You Are Not Connected to SQL Server"
+    FrmLoginServer.Show
+    Unload Form
+ElseIf Not Connect2 Then
+    MsgBox "You Are Not Login"
+    FrmLogin.Show
+    Unload Form
+Else
+    Form.Show , FrmUtama
+End If
+End Function
+
+Sub SystemLog(FormName As String, Button As String, Activity As String)
+SQL = "insert into SystemLog values('" & User.UserId & "',getdate(),'" & FormName & _
+    "','" & Button & "','" & Activity & "')"
+DbCon.Execute (SQL)
+End Sub
+
