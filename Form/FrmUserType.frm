@@ -616,3 +616,4 @@ TxtTypeName = Trim(Grid.Columns(1).Text)
 TxtTypeID.Locked = True
 TxtTypeName.Locked = False
 End Sub
+

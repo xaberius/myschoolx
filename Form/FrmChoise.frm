@@ -19,7 +19,7 @@ Begin VB.Form FrmChoise
       TabIndex        =   0
       Top             =   0
       Width           =   2715
-      _ExtentX        =   4789
+      _ExtentX        =   6350
       _ExtentY        =   5927
       ButtonMax       =   0   'False
       ButtonMin       =   0   'False
@@ -225,6 +225,7 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private Sub CmdDelete_Click()
+SystemLog Me.Name, "Admin Page", "Enter Admin Page"
 Unload Me
 FrmMainAdmin.Show
 End Sub
@@ -235,11 +236,13 @@ Me.Width = Me.BasForm1.Width
 End Sub
 
 Private Sub vbButton1_Click()
+SystemLog Me.Name, "Administration Page", "Enter Administration Page"
 Unload Me
 FrmMainAdministration.Show
 End Sub
 
 Private Sub vbButton2_Click()
+SystemLog Me.Name, "Teacher Page", "Enter Teacher Page"
 Unload Me
 FrmMainTeacher.Show
 End Sub

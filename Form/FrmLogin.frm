@@ -330,12 +330,13 @@ If Bar.Value = 100 Then
             User.UserType = Trim(RSFind!UserType)
             If Trim(RSFind!UserType) = "0001" Then
                 SystemLog Me.Name, "Login", Trim(User.UserId) & " Enter System."
-                FrmChoise.Show
                 Unload Me
+                FrmChoise.Show
+                'FrmMainAdmin.Show
             ElseIf Trim(RSFind!UserType) = "0002" Then
                 SystemLog Me.Name, "Login", Trim(User.UserId) & " Enter System."
-                FrmMainAdministration.Show
                 Unload Me
+                FrmMainAdministration.Show
             Else
                 MsgBox "User Type Is Not Valid"
                 Exit Sub

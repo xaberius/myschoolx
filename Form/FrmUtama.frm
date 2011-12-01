@@ -141,9 +141,11 @@ End Sub
 Private Sub SmartMenuXP1_Click(ByVal ID As Long)
 With SmartMenuXP1.MenuItems
         Select Case .Key(ID)
-            Case "mnuLogin": Unload Me: FrmLogin.Show
+            Case "mnuLogin":    Unload Me: FrmLogin.Show
+                                SystemLog Me.Name, "Logout", "User Logout"
             Case "mnuChoise": Unload Me: FrmChoise.Show
             Case "mnuExit": Unload Me
+                            SystemLog Me.Name, "Exit", "Exiting Application"
             Case "mnuDataForm": FrmDataForm.Show , FrmMainAdmin
             Case "mnuDataUser": FrmUser.Show , FrmMainAdmin
             Case "mnuUserType": FrmUserType.Show , FrmMainAdmin
@@ -155,4 +157,5 @@ With SmartMenuXP1.MenuItems
         End Select
 End With
 End Sub
+
 
