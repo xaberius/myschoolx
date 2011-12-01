@@ -8,10 +8,10 @@ Begin VB.Form FrmMainAdministration
    ClientLeft      =   0
    ClientTop       =   0
    ClientWidth     =   14280
+   Icon            =   "FrmMainAdministration.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   9510
    ScaleWidth      =   14280
-   ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
    Begin VBSmartXPMenu.SmartMenuXP SmartMenuXP1 
       Height          =   375
@@ -69,7 +69,7 @@ Begin VB.Form FrmMainAdministration
       Width           =   5235
       _ExtentX        =   9234
       _ExtentY        =   5477
-      Image           =   "FrmMainAdministration.frx":0000
+      Image           =   "FrmMainAdministration.frx":014A
       Props           =   5
    End
    Begin AlphaImageControl.aicAlphaImage BannerUtama 
@@ -79,7 +79,7 @@ Begin VB.Form FrmMainAdministration
       Width           =   15015
       _ExtentX        =   26485
       _ExtentY        =   1217
-      Image           =   "FrmMainAdministration.frx":584CB
+      Image           =   "FrmMainAdministration.frx":58615
       Scaler          =   1
       Angle           =   30
       Props           =   5
@@ -91,7 +91,7 @@ Begin VB.Form FrmMainAdministration
       Width           =   14295
       _ExtentX        =   25215
       _ExtentY        =   15769
-      Image           =   "FrmMainAdministration.frx":91A4D
+      Image           =   "FrmMainAdministration.frx":91B97
       Scaler          =   1
       Opacity         =   70
       Props           =   5
@@ -108,7 +108,7 @@ CekForm Me, TxtID
 End Sub
 
 Private Sub Form_Load()
-TxtID = "Main Admin"
+TxtID = "Main Administration"
 Me.Width = Me.Width + 1000
 Me.Height = Me.Height + 1000
 Me.BackGroundUtama.Height = Me.Height
@@ -135,7 +135,6 @@ Else
     FadeForm Me.hWnd, False
 End If
 End Sub
-
 
 Private Sub SmartMenuXP1_Click(ByVal ID As Long)
 With SmartMenuXP1.MenuItems

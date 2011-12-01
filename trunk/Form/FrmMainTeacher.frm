@@ -8,10 +8,10 @@ Begin VB.Form FrmMainTeacher
    ClientLeft      =   0
    ClientTop       =   0
    ClientWidth     =   14295
+   Icon            =   "FrmMainTeacher.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   9480
    ScaleWidth      =   14295
-   ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
    Begin VB.TextBox TxtID 
       Appearance      =   0  'Flat
@@ -50,7 +50,7 @@ Begin VB.Form FrmMainTeacher
       Width           =   5235
       _ExtentX        =   9234
       _ExtentY        =   5477
-      Image           =   "FrmMainTeacher.frx":0000
+      Image           =   "FrmMainTeacher.frx":014A
       Props           =   5
    End
    Begin AlphaImageControl.aicAlphaImage BannerUtama 
@@ -60,7 +60,7 @@ Begin VB.Form FrmMainTeacher
       Width           =   15015
       _ExtentX        =   26485
       _ExtentY        =   1217
-      Image           =   "FrmMainTeacher.frx":584CB
+      Image           =   "FrmMainTeacher.frx":58615
       Scaler          =   1
       Angle           =   30
       Props           =   5
@@ -91,7 +91,7 @@ Begin VB.Form FrmMainTeacher
       Width           =   14295
       _ExtentX        =   25215
       _ExtentY        =   15769
-      Image           =   "FrmMainTeacher.frx":91A4D
+      Image           =   "FrmMainTeacher.frx":91B97
       Scaler          =   1
       Opacity         =   70
       Props           =   5

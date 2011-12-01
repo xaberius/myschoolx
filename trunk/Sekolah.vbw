@@ -11,5 +11,5 @@ FrmUserType = 132, 174, 946, 636, C, 110, 145, 924, 607, C
 FrmMainAdministration = 22, 29, 836, 491, C, 66, 87, 880, 549, C
 FrmMainTeacher = 0, 0, 814, 462, C, 132, 174, 946, 636, C
 FrmLogSystem = 88, 116, 902, 578, C, 44, 58, 858, 520, C
-FrmChoise = 154, 203, 968, 665, C, 66, 87, 880, 549, C
-FrmDataStudent = 0, 0, 0, 0, C, 0, 0, 814, 462, C
+FrmChoise = 154, 203, 968, 665, Z, 66, 87, 880, 549, C
+FrmDataStudent = 132, 174, 946, 636, C, 0, 0, 814, 462, C

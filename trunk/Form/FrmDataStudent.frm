@@ -19,7 +19,7 @@ Begin VB.Form FrmDataStudent
    Begin BasKomponen.BasForm BasForm1 
       Height          =   6480
       Left            =   0
-      TabIndex        =   0
+      TabIndex        =   26
       Top             =   0
       Width           =   10200
       _ExtentX        =   17992
@@ -29,7 +29,7 @@ Begin VB.Form FrmDataStudent
       Begin TrueOleDBGrid70.TDBGrid Grid 
          Height          =   5265
          Left            =   9720
-         TabIndex        =   1
+         TabIndex        =   16
          Top             =   480
          Width           =   9930
          _ExtentX        =   17515
@@ -193,11 +193,11 @@ Begin VB.Form FrmDataStudent
          _StyleDefs(77)  =   "Named:id=42:FilterBar"
          _StyleDefs(78)  =   ":id=42,.parent=33,.bgcolor=&HFF0000&"
       End
-      Begin VB.TextBox Text7 
+      Begin VB.TextBox TxtPAddress 
          Appearance      =   0  'Flat
          Height          =   330
          Left            =   3480
-         TabIndex        =   25
+         TabIndex        =   8
          Top             =   3480
          Width           =   3255
       End
@@ -211,7 +211,7 @@ Begin VB.Form FrmDataStudent
       Begin BasTombol.vbButton vbButton1 
          Height          =   375
          Left            =   7440
-         TabIndex        =   24
+         TabIndex        =   9
          Top             =   3240
          Width           =   2295
          _ExtentX        =   4048
@@ -246,42 +246,42 @@ Begin VB.Form FrmDataStudent
          CHECK           =   0   'False
          VALUE           =   0   'False
       End
-      Begin VB.TextBox Text6 
+      Begin VB.TextBox TxtCity 
          Appearance      =   0  'Flat
          Height          =   330
          Left            =   3480
-         TabIndex        =   22
+         TabIndex        =   3
          Top             =   1680
          Width           =   3255
       End
-      Begin VB.TextBox Text5 
+      Begin VB.TextBox TxtAddress 
          Appearance      =   0  'Flat
          Height          =   330
          Left            =   3480
-         TabIndex        =   20
+         TabIndex        =   2
          Top             =   1320
          Width           =   3255
       End
-      Begin VB.TextBox Text4 
+      Begin VB.TextBox TxtPName 
          Appearance      =   0  'Flat
          Height          =   330
          Left            =   3480
-         TabIndex        =   18
+         TabIndex        =   7
          Top             =   3120
          Width           =   3255
       End
-      Begin VB.TextBox Text3 
+      Begin VB.TextBox TxtSchool 
          Appearance      =   0  'Flat
          Height          =   330
          Left            =   3480
-         TabIndex        =   16
+         TabIndex        =   6
          Top             =   2760
          Width           =   3255
       End
-      Begin TDBDate6Ctl.TDBDate TDBDate1 
+      Begin TDBDate6Ctl.TDBDate BirthDate 
          Height          =   330
          Left            =   3480
-         TabIndex        =   14
+         TabIndex        =   5
          Top             =   2400
          Width           =   3255
          _Version        =   65536
@@ -340,19 +340,19 @@ Begin VB.Form FrmDataStudent
          Value           =   40872
          CenturyMode     =   0
       End
-      Begin VB.TextBox Text2 
+      Begin VB.TextBox TxtPlace 
          Appearance      =   0  'Flat
          Height          =   330
          Left            =   3480
-         TabIndex        =   12
+         TabIndex        =   4
          Top             =   2040
          Width           =   3255
       End
-      Begin VB.TextBox Text1 
+      Begin VB.TextBox TxtName 
          Appearance      =   0  'Flat
          Height          =   330
          Left            =   3480
-         TabIndex        =   10
+         TabIndex        =   1
          Top             =   960
          Width           =   3255
       End
@@ -360,14 +360,14 @@ Begin VB.Form FrmDataStudent
          Appearance      =   0  'Flat
          Height          =   330
          Left            =   3480
-         TabIndex        =   8
+         TabIndex        =   0
          Top             =   600
          Width           =   3255
       End
       Begin BasTombol.vbButton CmdAdd 
          Height          =   375
          Left            =   240
-         TabIndex        =   7
+         TabIndex        =   10
          Top             =   5880
          Width           =   1335
          _ExtentX        =   2355
@@ -405,7 +405,7 @@ Begin VB.Form FrmDataStudent
       Begin BasTombol.vbButton CmdEdit 
          Height          =   375
          Left            =   1680
-         TabIndex        =   6
+         TabIndex        =   11
          Top             =   5880
          Width           =   1335
          _ExtentX        =   2355
@@ -443,7 +443,7 @@ Begin VB.Form FrmDataStudent
       Begin BasTombol.vbButton CmdDelete 
          Height          =   375
          Left            =   3120
-         TabIndex        =   5
+         TabIndex        =   12
          Top             =   5880
          Width           =   1335
          _ExtentX        =   2355
@@ -481,7 +481,7 @@ Begin VB.Form FrmDataStudent
       Begin BasTombol.vbButton CmdSave 
          Height          =   375
          Left            =   5640
-         TabIndex        =   4
+         TabIndex        =   13
          Top             =   5880
          Width           =   1335
          _ExtentX        =   2355
@@ -519,7 +519,7 @@ Begin VB.Form FrmDataStudent
       Begin BasTombol.vbButton CmdCancel 
          Height          =   375
          Left            =   7080
-         TabIndex        =   3
+         TabIndex        =   14
          Top             =   5880
          Width           =   1335
          _ExtentX        =   2355
@@ -557,7 +557,7 @@ Begin VB.Form FrmDataStudent
       Begin BasTombol.vbButton CmdQuit 
          Height          =   375
          Left            =   8520
-         TabIndex        =   2
+         TabIndex        =   15
          Top             =   5880
          Width           =   1335
          _ExtentX        =   2355
@@ -607,7 +607,7 @@ Begin VB.Form FrmDataStudent
          ForeColor       =   &H0000DDFF&
          Height          =   255
          Left            =   240
-         TabIndex        =   26
+         TabIndex        =   25
          Top             =   3480
          Width           =   3135
       End
@@ -633,7 +633,7 @@ Begin VB.Form FrmDataStudent
          ForeColor       =   &H0000DDFF&
          Height          =   255
          Left            =   240
-         TabIndex        =   23
+         TabIndex        =   24
          Top             =   1680
          Width           =   1455
       End
@@ -652,7 +652,7 @@ Begin VB.Form FrmDataStudent
          ForeColor       =   &H0000DDFF&
          Height          =   255
          Left            =   240
-         TabIndex        =   21
+         TabIndex        =   23
          Top             =   1320
          Width           =   1455
       End
@@ -671,7 +671,7 @@ Begin VB.Form FrmDataStudent
          ForeColor       =   &H0000DDFF&
          Height          =   255
          Left            =   240
-         TabIndex        =   19
+         TabIndex        =   22
          Top             =   3120
          Width           =   2775
       End
@@ -690,7 +690,7 @@ Begin VB.Form FrmDataStudent
          ForeColor       =   &H0000DDFF&
          Height          =   255
          Left            =   240
-         TabIndex        =   17
+         TabIndex        =   21
          Top             =   2760
          Width           =   2535
       End
@@ -709,7 +709,7 @@ Begin VB.Form FrmDataStudent
          ForeColor       =   &H0000DDFF&
          Height          =   255
          Left            =   240
-         TabIndex        =   15
+         TabIndex        =   20
          Top             =   2400
          Width           =   1455
       End
@@ -728,7 +728,7 @@ Begin VB.Form FrmDataStudent
          ForeColor       =   &H0000DDFF&
          Height          =   255
          Left            =   240
-         TabIndex        =   13
+         TabIndex        =   19
          Top             =   2040
          Width           =   1455
       End
@@ -747,7 +747,7 @@ Begin VB.Form FrmDataStudent
          ForeColor       =   &H0000DDFF&
          Height          =   255
          Left            =   240
-         TabIndex        =   11
+         TabIndex        =   18
          Top             =   960
          Width           =   1455
       End
@@ -766,7 +766,7 @@ Begin VB.Form FrmDataStudent
          ForeColor       =   &H0000DDFF&
          Height          =   255
          Left            =   240
-         TabIndex        =   9
+         TabIndex        =   17
          Top             =   600
          Width           =   1455
       End
@@ -784,12 +784,45 @@ Tombol False
 Edit = False
 End Sub
 
-Sub CekIsi()
+Function CheckBlank() As Boolean
 If Trim(TxtStudentID) = "" Then
     MsgBox "Student's ID Still Blank"
-    Exit Sub
+    TxtStudentID.SetFocus
+    CheckBlank = False
+ElseIf Trim(TxtName) = "" Then
+    MsgBox "Student's Name Still Blank"
+    TxtName.SetFocus
+    CheckBlank = False
+ElseIf Trim(TxtAddress) = "" Then
+    MsgBox "Student's Addrees Still Blank"
+    TxtAddress.SetFocus
+    CheckBlank = False
+ElseIf Trim(TxtCity) = "" Then
+    MsgBox "Student's City Still Blank"
+    TxtCity.SetFocus
+    CheckBlank = False
+ElseIf Year(BirthDate.Value) > Year(Date) - 5 Then
+    MsgBox "Birth Date Invalid"
+    BirthDate.SetFocus
+    CheckBlank = False
+ElseIf Trim(TxtPName) = "" Then
+    MsgBox "Parent's Name Still Blank"
+    TxtPName.SetFocus
+    CheckBlank = False
+ElseIf Trim(TxtPAddress) = "" Then
+    MsgBox "Parent's Address Still Blank"
+    TxtPAddress.SetFocus
+    CheckBlank = False
+End If
+End Function
+
+Private Sub CmdSave_Click()
+If Not CheckBlank Then Exit Sub
+If Edit = False Then
+    SQL = "insert into"
 End If
 End Sub
+
 Private Sub Form_Load()
 Me.Height = Me.BasForm1.Height
 Me.Width = Me.BasForm1.Width
@@ -814,15 +847,42 @@ Set Grid.DataSource = DbCon.Execute(SQL)
 Grid.Refresh
 End Sub
 
+Private Sub Text5_Change()
+
+End Sub
+
+Private Sub TxtAddress_Change()
+
+End Sub
+
+Private Sub TxtCity_Change()
+
+End Sub
+
+Private Sub TxtName_Change()
+
+End Sub
+
+Private Sub TxtStudentID_Change()
+If Len(Trim(TxtStudentID)) < 2 Then
+SQL = "Select ID from Student where id='" & Trim(TxtStudentID) & "'"
+Set RSFind = DbCon.Execute(SQL)
+If RSFind.RecordCount > 0 Then
+    MsgBox "Student ID Already Exist. Try Again."
+    Exit Sub
+End If
+
+End Sub
+
 Private Sub vbButton1_Click()
 With CDI
-.DialogTitle = "Picture"
-.Filter = "JPEG|*.jpg"
-.ShowOpen
+    .DialogTitle = "Picture"
+    .Filter = "JPEG|*.jpg"
+    .ShowOpen
 
-If .FileName <> "" Then
-Set Me.Image1.Picture = Nothing
-Me.Image1.Picture = LoadPicture(.FileName)
-End If
+    If .FileName <> "" Then
+        Set Me.Image1.Picture = Nothing
+        Me.Image1.Picture = LoadPicture(.FileName)
+    End If
 End With
 End Sub

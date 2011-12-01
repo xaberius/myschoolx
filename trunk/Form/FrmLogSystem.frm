@@ -609,14 +609,15 @@ TxtID = "A01-04-01"
 Me.Height = Me.BasForm1.Height
 Me.Width = Me.BasForm1.Width
 AdoUser.ConnectionString = ConDB
-StartDate = Date
-FinishDate = Date + 7
+StartDate = Date - 7
+FinishDate = Date
 End Sub
 
 Sub RefreshData(User As String, SDate As Date, FDate As Date)
 Set Grid.DataSource = Nothing
 SQL = "select LogDate,FormName,ButtonType,Activity from SystemLog where userID='" & User & _
-    "' and (LogDate > '" & FormatTgl(SDate) & "' and LogDate < '" & FormatTgl(FDate) & "') "
+    "' and (LogDate > '" & FormatTgl(SDate) & "' and LogDate < '" & FormatTgl(FDate + 1) & "') "
 Set Grid.DataSource = DbCon.Execute(SQL)
 Grid.Refresh
 End Sub
+
