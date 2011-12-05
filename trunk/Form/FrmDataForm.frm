@@ -541,14 +541,9 @@ Form_Load
 End Sub
 
 Private Sub CmdDelete_Click()
-Edit = False
-Tombol Me, False
-TxtFormID = Trim(Grid.Columns(0).Text)
-TxtFormName = Trim(Grid.Columns(1).Text)
-TxtFormID.Locked = True
-TxtFormName.Locked = True
 
 If MsgBox("Are You Sure to Delete This??", vbCritical + vbYesNo) = vbYes Then
+    SystemLog Me.Name, "Delete", "Delete Form where Form ID= " & Trim(Grid.Columns(0).Text)
     SQL = "delete from FormX where formid='" & Trim(TxtFormID.Text) & "'"
     DbCon.Execute SQL
     MsgBox "Data Deleted"
@@ -587,12 +582,14 @@ If Not Edit Then
     SQL = "insert into formX values('" & Trim(TxtFormID.Text) & "','" & Trim(TxtFormName.Text) & _
     "','" & Code & "')"
     DbCon.Execute SQL
+    SystemLog Me.Name, "Save", "Save New Form Where Form ID= " & Trim(TxtFormID.Text)
     MsgBox "Data Saved"
     Form_Load
     RefreshData
 Else
         SQL = "update FormX Set FormName='" & Trim(TxtFormName.Text) & "' where FormID='" & Trim(TxtFormID.Text) & "'"
         DbCon.Execute SQL
+        SystemLog Me.Name, "Update", "Update Form Where Form ID= " & Trim(TxtFormID.Text)
         MsgBox "Data Updated"
         Form_Load
         RefreshData
@@ -631,10 +628,6 @@ TxtFormID.Locked = True
 TxtFormName.Locked = False
 TxtFormID.BackColor = vbRed
 TxtFormID.ForeColor = vbWhite
-End Sub
-
-Private Sub Label2_Click()
-
 End Sub
 
 Private Sub TxtFormID_KeyDown(KeyCode As Integer, Shift As Integer)

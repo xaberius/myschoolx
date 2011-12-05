@@ -756,13 +756,14 @@ Set Grid.DataSource = DbCon.Execute(SQL)
 Grid.Refresh
 End Sub
 
-Private Sub cmdCancel_Click()
+Private Sub CmdCancel_Click()
 Form_Load
 End Sub
 
 Private Sub CmdDelete_Click()
 If MsgBox("Are You Sure To Delete This?", vbCritical + vbYesNo) = vbYes Then
-    SQL = "delete from userX where UserID='" & Trim(Grid.Columns(1).Text) & "'"
+    SystemLog Me.Name, "Delete", "Delete User Where User ID= " & Trim(Grid.Columns(1).Text)
+    SQL = "delete from userX where UserID='" & Trim(Grid.Columns(0).Text) & "'"
     DbCon.Execute SQL
     MsgBox "Data Deleted."
     RefreshData
@@ -797,6 +798,7 @@ If Not Edit Then
         "','" & Trim(Trans.encryp_pass(25, Trim(TxtUserPassword.Text))) & "','" & FormatTgl(Date) & "','" & _
         FormatTgl(Date + 30) & "','" & Trim(CmbPosition.Columns(0).Text) & "')"
     DbCon.Execute SQL
+    SystemLog Me.Name, "Save", "Save New User Where User ID= " & Trim(TxtUserID.Text)
     MsgBox "Data Saved"
     RefreshData
     Form_Load
@@ -805,6 +807,7 @@ Else
         "',UserPassword='" & Trim(Trans.encryp_pass(25, Trim(TxtUserPassword.Text))) & _
         "',UserType='" & Trim(CmbPosition.Columns(0).Text) & "'"
     DbCon.Execute SQL
+    SystemLog Me.Name, "Update", "Update User Where User ID= " & Trim(TxtUserID.Text)
     MsgBox "Data Updated"
     RefreshData
     Form_Load
