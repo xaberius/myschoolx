@@ -553,7 +553,10 @@ End Sub
 
 Private Sub CmdDelete_Click()
 If MsgBox("Are You Sure Delete This??", vbCritical + vbYesNo) = vbYes Then
-    SQL = "delete from UserType where typeID='" & Trim(TxtTypeID.Text) & "'"
+    SQL = "select TypeName from UserType where typeID='" & Trim(Grid.Columns(0).Text) & "'"
+    Set RSFind = DbCon.Execute(SQL)
+    SystemLog Me.Name, "Delete", "Delete User Type Where User Type Name= " & Trim(RSFind!TypeName)
+    SQL = "delete from UserType where typeID='" & Trim(Grid.Columns(0).Text) & "'"
     DbCon.Execute SQL
     MsgBox "Data Deleted!!!"
     RefreshData
@@ -562,7 +565,8 @@ End If
 End Sub
 
 Private Sub CmdEdit_Click()
-Grid_Click
+Grid_DblClick
+
 End Sub
 
 Private Sub CmdQuit_Click()
@@ -578,12 +582,14 @@ End If
 If Not Edit Then
     SQL = "Insert into UserType values('" & Trim(TxtTypeID.Text) & "','" & Trim(TxtTypeName.Text) & "')"
     DbCon.Execute SQL
+    SystemLog Me.Name, "Save", "Save New User Type Where User Type Name= " & Trim(TxtTypeName.Text)
     MsgBox "Data Saved..."
     RefreshData
     Form_Load
 Else
     SQL = "update UserType set TypeName='" & Trim(TxtTypeName.Text) & _
     "' where TypeID='" & Trim(TxtTypeID.Text) & "'"
+    SystemLog Me.Name, "Update", "Update User Type Where User Type Name= " & Trim(TxtTypeName.Text)
     DbCon.Execute SQL
     MsgBox "Data Updated..."
     RefreshData
@@ -607,8 +613,7 @@ Tombol Me, True
 RefreshData
 End Sub
 
-
-Private Sub Grid_Click()
+Private Sub Grid_DblClick()
 Edit = True
 Tombol Me, False
 TxtTypeID = Trim(Grid.Columns(0).Text)
@@ -616,4 +621,3 @@ TxtTypeName = Trim(Grid.Columns(1).Text)
 TxtTypeID.Locked = True
 TxtTypeName.Locked = False
 End Sub
-

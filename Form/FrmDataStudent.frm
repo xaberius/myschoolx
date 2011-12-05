@@ -39,20 +39,25 @@ Begin VB.Form FrmDataStudent
          _WasPersistedAsPixels=   0
          Columns(0)._VlistStyle=   0
          Columns(0)._MaxComboItems=   5
-         Columns(0).Caption=   "Student's Name"
-         Columns(0).DataField=   "Name"
+         Columns(0).Caption=   "ID"
+         Columns(0).DataField=   "ID"
          Columns(0)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
          Columns(1)._VlistStyle=   0
          Columns(1)._MaxComboItems=   5
-         Columns(1).Caption=   "Address"
-         Columns(1).DataField=   "Address"
+         Columns(1).Caption=   "Student's Name"
+         Columns(1).DataField=   "Name"
          Columns(1)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
          Columns(2)._VlistStyle=   0
          Columns(2)._MaxComboItems=   5
-         Columns(2).Caption=   "City"
-         Columns(2).DataField=   "city"
+         Columns(2).Caption=   "Address"
+         Columns(2).DataField=   "Address"
          Columns(2)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
-         Columns.Count   =   3
+         Columns(3)._VlistStyle=   0
+         Columns(3)._MaxComboItems=   5
+         Columns(3).Caption=   "City"
+         Columns(3).DataField=   "city"
+         Columns(3)._PropDict=   "_MaxComboItems,516,2;_VlistStyle,514,3"
+         Columns.Count   =   4
          Splits(0)._UserFlags=   0
          Splits(0).PartialRightColumn=   0   'False
          Splits(0).MarqueeStyle=   2
@@ -65,25 +70,32 @@ Begin VB.Form FrmDataStudent
          Splits(0).DividerColor=   8421376
          Splits(0).SpringMode=   0   'False
          Splits(0)._PropDict=   "_ColumnProps,515,0;_UserFlags,518,3"
-         Splits(0)._ColumnProps(0)=   "Columns.Count=3"
+         Splits(0)._ColumnProps(0)=   "Columns.Count=4"
          Splits(0)._ColumnProps(1)=   "Column(0).Width=3281"
          Splits(0)._ColumnProps(2)=   "Column(0).DividerColor=0"
          Splits(0)._ColumnProps(3)=   "Column(0)._WidthInPix=3175"
          Splits(0)._ColumnProps(4)=   "Column(0)._EditAlways=0"
          Splits(0)._ColumnProps(5)=   "Column(0)._ColStyle=516"
-         Splits(0)._ColumnProps(6)=   "Column(0).Order=1"
-         Splits(0)._ColumnProps(7)=   "Column(1).Width=3281"
-         Splits(0)._ColumnProps(8)=   "Column(1).DividerColor=0"
-         Splits(0)._ColumnProps(9)=   "Column(1)._WidthInPix=3175"
-         Splits(0)._ColumnProps(10)=   "Column(1)._EditAlways=0"
-         Splits(0)._ColumnProps(11)=   "Column(1)._ColStyle=516"
-         Splits(0)._ColumnProps(12)=   "Column(1).Order=2"
-         Splits(0)._ColumnProps(13)=   "Column(2).Width=3281"
-         Splits(0)._ColumnProps(14)=   "Column(2).DividerColor=0"
-         Splits(0)._ColumnProps(15)=   "Column(2)._WidthInPix=3175"
-         Splits(0)._ColumnProps(16)=   "Column(2)._EditAlways=0"
-         Splits(0)._ColumnProps(17)=   "Column(2)._ColStyle=516"
-         Splits(0)._ColumnProps(18)=   "Column(2).Order=3"
+         Splits(0)._ColumnProps(6)=   "Column(0).Visible=0"
+         Splits(0)._ColumnProps(7)=   "Column(0).Order=1"
+         Splits(0)._ColumnProps(8)=   "Column(1).Width=3281"
+         Splits(0)._ColumnProps(9)=   "Column(1).DividerColor=0"
+         Splits(0)._ColumnProps(10)=   "Column(1)._WidthInPix=3175"
+         Splits(0)._ColumnProps(11)=   "Column(1)._EditAlways=0"
+         Splits(0)._ColumnProps(12)=   "Column(1)._ColStyle=512"
+         Splits(0)._ColumnProps(13)=   "Column(1).Order=2"
+         Splits(0)._ColumnProps(14)=   "Column(2).Width=3281"
+         Splits(0)._ColumnProps(15)=   "Column(2).DividerColor=0"
+         Splits(0)._ColumnProps(16)=   "Column(2)._WidthInPix=3175"
+         Splits(0)._ColumnProps(17)=   "Column(2)._EditAlways=0"
+         Splits(0)._ColumnProps(18)=   "Column(2)._ColStyle=512"
+         Splits(0)._ColumnProps(19)=   "Column(2).Order=3"
+         Splits(0)._ColumnProps(20)=   "Column(3).Width=3281"
+         Splits(0)._ColumnProps(21)=   "Column(3).DividerColor=0"
+         Splits(0)._ColumnProps(22)=   "Column(3)._WidthInPix=3175"
+         Splits(0)._ColumnProps(23)=   "Column(3)._EditAlways=0"
+         Splits(0)._ColumnProps(24)=   "Column(3)._ColStyle=512"
+         Splits(0)._ColumnProps(25)=   "Column(3).Order=4"
          Splits.Count    =   1
          PrintInfos(0)._StateFlags=   3
          PrintInfos(0).Name=   "piInternal 0"
@@ -157,41 +169,45 @@ Begin VB.Form FrmDataStudent
          _StyleDefs(41)  =   "Splits(0).OddRowStyle:id=21,.parent=10,.namedParent=37,.bgcolor=&H80FFFF&"
          _StyleDefs(42)  =   "Splits(0).RecordSelectorStyle:id=23,.parent=11"
          _StyleDefs(43)  =   "Splits(0).FilterBarStyle:id=24,.parent=12"
-         _StyleDefs(44)  =   "Splits(0).Columns(0).Style:id=28,.parent=13"
-         _StyleDefs(45)  =   "Splits(0).Columns(0).HeadingStyle:id=25,.parent=14"
-         _StyleDefs(46)  =   "Splits(0).Columns(0).FooterStyle:id=26,.parent=15"
-         _StyleDefs(47)  =   "Splits(0).Columns(0).EditorStyle:id=27,.parent=17"
-         _StyleDefs(48)  =   "Splits(0).Columns(1).Style:id=32,.parent=13"
-         _StyleDefs(49)  =   "Splits(0).Columns(1).HeadingStyle:id=29,.parent=14"
-         _StyleDefs(50)  =   "Splits(0).Columns(1).FooterStyle:id=30,.parent=15"
-         _StyleDefs(51)  =   "Splits(0).Columns(1).EditorStyle:id=31,.parent=17"
-         _StyleDefs(52)  =   "Splits(0).Columns(2).Style:id=46,.parent=13"
-         _StyleDefs(53)  =   "Splits(0).Columns(2).HeadingStyle:id=43,.parent=14"
-         _StyleDefs(54)  =   "Splits(0).Columns(2).FooterStyle:id=44,.parent=15"
-         _StyleDefs(55)  =   "Splits(0).Columns(2).EditorStyle:id=45,.parent=17"
-         _StyleDefs(56)  =   "Named:id=33:Normal"
-         _StyleDefs(57)  =   ":id=33,.parent=0,.bgcolor=&HFF80&,.fgcolor=&HFFFFFF&,.borderColor=&H800040&"
-         _StyleDefs(58)  =   "Named:id=34:Heading"
-         _StyleDefs(59)  =   ":id=34,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
-         _StyleDefs(60)  =   ":id=34,.wraptext=-1"
-         _StyleDefs(61)  =   "Named:id=35:Footing"
-         _StyleDefs(62)  =   ":id=35,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
-         _StyleDefs(63)  =   ":id=35,.wraptext=0,.locked=0"
-         _StyleDefs(64)  =   "Named:id=36:Selected"
-         _StyleDefs(65)  =   ":id=36,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
-         _StyleDefs(66)  =   ":id=36,.borderColor=&H80000013&"
-         _StyleDefs(67)  =   "Named:id=37:Caption"
-         _StyleDefs(68)  =   ":id=37,.parent=34,.alignment=2,.bgcolor=&H80000009&"
-         _StyleDefs(69)  =   "Named:id=38:HighlightRow"
-         _StyleDefs(70)  =   ":id=38,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&HA00000&,.borderColor=&H800040&"
-         _StyleDefs(71)  =   "Named:id=39:EvenRow"
-         _StyleDefs(72)  =   ":id=39,.parent=33,.bgcolor=&HFFFF00&"
-         _StyleDefs(73)  =   "Named:id=40:OddRow"
-         _StyleDefs(74)  =   ":id=40,.parent=33,.bgcolor=&H4000&"
-         _StyleDefs(75)  =   "Named:id=41:RecordSelector"
-         _StyleDefs(76)  =   ":id=41,.parent=34"
-         _StyleDefs(77)  =   "Named:id=42:FilterBar"
-         _StyleDefs(78)  =   ":id=42,.parent=33,.bgcolor=&HFF0000&"
+         _StyleDefs(44)  =   "Splits(0).Columns(0).Style:id=50,.parent=13"
+         _StyleDefs(45)  =   "Splits(0).Columns(0).HeadingStyle:id=47,.parent=14"
+         _StyleDefs(46)  =   "Splits(0).Columns(0).FooterStyle:id=48,.parent=15"
+         _StyleDefs(47)  =   "Splits(0).Columns(0).EditorStyle:id=49,.parent=17"
+         _StyleDefs(48)  =   "Splits(0).Columns(1).Style:id=28,.parent=13,.alignment=0"
+         _StyleDefs(49)  =   "Splits(0).Columns(1).HeadingStyle:id=25,.parent=14"
+         _StyleDefs(50)  =   "Splits(0).Columns(1).FooterStyle:id=26,.parent=15"
+         _StyleDefs(51)  =   "Splits(0).Columns(1).EditorStyle:id=27,.parent=17"
+         _StyleDefs(52)  =   "Splits(0).Columns(2).Style:id=32,.parent=13,.alignment=0"
+         _StyleDefs(53)  =   "Splits(0).Columns(2).HeadingStyle:id=29,.parent=14"
+         _StyleDefs(54)  =   "Splits(0).Columns(2).FooterStyle:id=30,.parent=15"
+         _StyleDefs(55)  =   "Splits(0).Columns(2).EditorStyle:id=31,.parent=17"
+         _StyleDefs(56)  =   "Splits(0).Columns(3).Style:id=46,.parent=13,.alignment=0"
+         _StyleDefs(57)  =   "Splits(0).Columns(3).HeadingStyle:id=43,.parent=14"
+         _StyleDefs(58)  =   "Splits(0).Columns(3).FooterStyle:id=44,.parent=15"
+         _StyleDefs(59)  =   "Splits(0).Columns(3).EditorStyle:id=45,.parent=17"
+         _StyleDefs(60)  =   "Named:id=33:Normal"
+         _StyleDefs(61)  =   ":id=33,.parent=0,.bgcolor=&HFF80&,.fgcolor=&HFFFFFF&,.borderColor=&H800040&"
+         _StyleDefs(62)  =   "Named:id=34:Heading"
+         _StyleDefs(63)  =   ":id=34,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
+         _StyleDefs(64)  =   ":id=34,.wraptext=-1"
+         _StyleDefs(65)  =   "Named:id=35:Footing"
+         _StyleDefs(66)  =   ":id=35,.parent=33,.valignment=2,.bgcolor=&H8000000F&,.fgcolor=&H80000012&"
+         _StyleDefs(67)  =   ":id=35,.wraptext=0,.locked=0"
+         _StyleDefs(68)  =   "Named:id=36:Selected"
+         _StyleDefs(69)  =   ":id=36,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&H8000000E&"
+         _StyleDefs(70)  =   ":id=36,.borderColor=&H80000013&"
+         _StyleDefs(71)  =   "Named:id=37:Caption"
+         _StyleDefs(72)  =   ":id=37,.parent=34,.alignment=2,.bgcolor=&H80000009&"
+         _StyleDefs(73)  =   "Named:id=38:HighlightRow"
+         _StyleDefs(74)  =   ":id=38,.parent=33,.bgcolor=&H8000000D&,.fgcolor=&HA00000&,.borderColor=&H800040&"
+         _StyleDefs(75)  =   "Named:id=39:EvenRow"
+         _StyleDefs(76)  =   ":id=39,.parent=33,.bgcolor=&HFFFF00&"
+         _StyleDefs(77)  =   "Named:id=40:OddRow"
+         _StyleDefs(78)  =   ":id=40,.parent=33,.bgcolor=&H4000&"
+         _StyleDefs(79)  =   "Named:id=41:RecordSelector"
+         _StyleDefs(80)  =   ":id=41,.parent=34"
+         _StyleDefs(81)  =   "Named:id=42:FilterBar"
+         _StyleDefs(82)  =   ":id=42,.parent=33,.bgcolor=&HFF0000&"
       End
       Begin VB.TextBox TxtPAddress 
          Appearance      =   0  'Flat
@@ -813,14 +829,64 @@ ElseIf Trim(TxtPAddress) = "" Then
     MsgBox "Parent's Address Still Blank"
     TxtPAddress.SetFocus
     CheckBlank = False
+ElseIf Trim(CDI.FileName) = "" Then
+    MsgBox "Picture Still Empty"
+    vbButton1.SetFocus
+    CheckBlank = False
+Else
+    CheckBlank = True
 End If
 End Function
+
+Private Sub CmdCancel_Click()
+Form_Load
+End Sub
+
+Private Sub CmdDelete_Click()
+If MsgBox("Are You Sure To Delete This??", vbCritical + vbYesNo) = vbYes Then
+    FileSystem.Kill App.Path & "\Picture\" & Trim(Grid.Columns(0).Text) & ".jpg"
+    SystemLog Me.Name, "Delete", "Delete Student Where Student ID = " & Trim(Grid.Columns(0).Text)
+    SQL = "Delete from student where id='" & Trim(Grid.Columns(0).Text) & "'"
+    DbCon.Execute SQL
+    RefreshData
+End If
+    
+End Sub
+
+Private Sub CmdEdit_Click()
+Grid_DblClick
+End Sub
+
+Private Sub CmdQuit_Click()
+Unload Me
+End Sub
 
 Private Sub CmdSave_Click()
 If Not CheckBlank Then Exit Sub
 If Edit = False Then
-    SQL = "insert into"
+    SQL = "insert into Student values('" & Trim(TxtStudentID) & "','" & Trim(TxtName) & "','" & _
+            Trim(TxtAddress) & "','" & Trim(TxtCity) & "','" & Trim(TxtPlace) & _
+            "','" & FormatTgl(BirthDate) & "','" & Trim(TxtSchool) & "','" & Trim(TxtPName) & "','" & _
+            Trim(TxtPAddress) & "','" & Trim(CDI.FileName) & "')"
+    DbCon.Execute SQL
+    SavePicture Image1.Picture, App.Path & "\Picture\" & Trim(TxtStudentID) & ".jpg"
+    SystemLog Me.Name, "Save", "Save New Student Where Student ID = " & Trim(TxtStudentID)
+    MsgBox "Data Saved"
+    Form_Load
+ElseIf Edit Then
+    SQL = "Update Student Set Name='" & Trim(TxtName) & "',address='" & Trim(TxtAddress) & _
+        "',city='" & Trim(TxtCity) & "',place='" & Trim(TxtPlace) & "',date='" & FormatTgl(BirthDate) & _
+        "',school='" & Trim(TxtSchool) & "',ParentsName='" & Trim(TxtPName) & _
+        "', ParentsAddress='" & Trim(TxtPAddress) & "',Picture='" & Trim(CDI.FileName) & _
+        "' where id='" & Trim(TxtStudentID) & " '"
+    DbCon.Execute SQL
+    FileSystem.Kill App.Path & "\Picture\" & Trim(TxtStudentID) & ".jpg"
+    SavePicture Image1.Picture, App.Path & "\Picture\" & Trim(TxtStudentID) & ".jpg"
+    SystemLog Me.Name, "Update", "Update Student Where Student ID = " & Trim(TxtStudentID)
+    MsgBox "Data Updated"
+    Form_Load
 End If
+    
 End Sub
 
 Private Sub Form_Load()
@@ -828,6 +894,22 @@ Me.Height = Me.BasForm1.Height
 Me.Width = Me.BasForm1.Width
 Me.Grid.Left = 120
 Tombol True
+ClearField
+RefreshData
+End Sub
+
+Sub ClearField()
+TxtStudentID = ""
+TxtName = ""
+TxtAddress = ""
+TxtCity = ""
+TxtPlace = ""
+TxtSchool = ""
+BirthDate.Value = Date - 1825
+TxtPName = ""
+TxtPAddress = ""
+CDI.FileName = ""
+Image1.Picture = Nothing
 End Sub
 
 Sub Tombol(Stat As Boolean)
@@ -842,34 +924,40 @@ End Sub
 
 Sub RefreshData()
 Grid.DataSource = Nothing
-SQL = "Select name,address,city from Student"
+SQL = "Select id,name,address,city,ParentsName,ParentsAddress from Student order by ID"
 Set Grid.DataSource = DbCon.Execute(SQL)
 Grid.Refresh
 End Sub
 
-Private Sub Text5_Change()
+Private Sub Grid_DblClick()
+Edit = True
+SQL = "Select Name,address,city,place,date,school,ParentsName,ParentsAddress,picture from Student where id='" & _
+        Trim(Grid.Columns(0).Text) & "'"
+Set RSFind = DbCon.Execute(SQL)
 
-End Sub
+TxtStudentID = Trim(Grid.Columns(0).Text)
+TxtName = Trim(RSFind!Name)
+TxtAddress = Trim(RSFind!address)
+TxtCity = Trim(RSFind!city)
+TxtPlace = Trim(RSFind!place)
+BirthDate = RSFind!Date
+TxtSchool = Trim(RSFind!School)
+TxtPName = Trim(RSFind!ParentsName)
+TxtPAddress = Trim(RSFind!parentsAddress)
+CDI.FileName = Trim(RSFind!Picture)
+Image1.Picture = LoadPicture(CDI.FileName)
 
-Private Sub TxtAddress_Change()
-
-End Sub
-
-Private Sub TxtCity_Change()
-
-End Sub
-
-Private Sub TxtName_Change()
-
+Tombol False
 End Sub
 
 Private Sub TxtStudentID_Change()
 If Len(Trim(TxtStudentID)) < 2 Then
-SQL = "Select ID from Student where id='" & Trim(TxtStudentID) & "'"
-Set RSFind = DbCon.Execute(SQL)
-If RSFind.RecordCount > 0 Then
-    MsgBox "Student ID Already Exist. Try Again."
-    Exit Sub
+    SQL = "Select ID from Student where id='" & Trim(TxtStudentID) & "'"
+    Set RSFind = DbCon.Execute(SQL)
+    If RSFind.RecordCount > 0 Then
+        MsgBox "Student ID Already Exist. Try Again."
+        Exit Sub
+    End If
 End If
 
 End Sub
